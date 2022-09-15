@@ -1,4 +1,4 @@
-# Desafio N°1 
+# Desafío N°1 
 ## Consignas
 1. Declarar una clase Usuario
 2. Hacer que Usuario cuente con los siguientes atributos:
