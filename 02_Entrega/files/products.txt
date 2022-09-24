@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "title": "Procesador Ryzen 5 5600",
+    "price": 257,
+    "thumbnail": "https://mexx-img-2019.s3.amazonaws.com/procesador-amd-ryzen-5_42556_1.jpeg"
+  },
+  {
+    "id": 3,
+    "title": "Procesador Ryzen 7 5700x",
+    "price": 375,
+    "thumbnail": "https://mexx-img-2019.s3.amazonaws.com/Procesador-Amd-Ryzen-7-5700X-Ghz-AM4_42712_1.jpeg"
+  }
+]
