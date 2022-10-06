@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "Fire and Blood",
+    "price": 3500,
+    "thumbnail": "Libro1.com"
+  },
+  {
+    "id": 2,
+    "title": "Cuentos inconclusos de Númenor y la tierra media",
+    "price": 1200,
+    "thumbnail": "Libro2.com"
+  },
+  {
+    "id": 3,
+    "title": "El Silmarillion",
+    "price": 1000,
+    "thumbnail": "Libro3.com"
+  },
+  {
+    "id": 4,
+    "title": "La música del silencio",
+    "price": 1500,
+    "thumbnail": "Libro4.com"
+  },
+  {
+    "id": 5,
+    "title": "Harry Potter and the chamber of secrets",
+    "price": 3300,
+    "thumbnail": "Libro5.com"
+  }
+]
