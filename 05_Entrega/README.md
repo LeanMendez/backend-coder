@@ -34,8 +34,7 @@ Considero que por su simplecidad a la hora de escribirlo, su sintáxis y su legi
 
 No obstante Ejs me pareció interesante también, y no tuve problemas con la interpolación de variables. Pero tiene una sintáxis un poco mas rebuscada que handlebars.
 
-Y el que menos me agradó fue Pug, ya que tuve problemas para hacer importaciones de archivos *.pug* dentro de otros, y fue un poco frustrante trabajar con él. Sin embargo, rescato positivo que la sintáxis de indentación cuando te acostumbras se escribe bastante rápido.
-
+Y el que menos me agradó fue Pug, ya que tuve problemas para hacer importaciones de archivos *.pug* dentro de otros, y fue un poco frustrante trabajar con él. Sin embargo, rescato positivo que la sintáxis de indentación cuando te acostumbras se escribe bastante rápido. ...
 
 
 
