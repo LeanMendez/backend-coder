@@ -1,0 +1,36 @@
+<form action="/productos" method="post" class="d-grid col-5 mx-auto mb-5">
+  <div class="mb-3">
+    <label for="title" class="form-label">Nombre del Producto</label>
+    <input
+      type="text"
+      name="title"
+      id="title"
+      required
+      aria-required="true"
+      class="form-control"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="price" class="form-label">Precio del Producto</label>
+    <input
+      type="number"
+      name="price"
+      id="price"
+      required
+      aria-required="true"
+      class="form-control"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="url" class="form-label">URL foto de producto</label>
+    <input
+      type="text"
+      name="thumbnail"
+      id="url"
+      required
+      aria-required="true"
+      class="form-control"
+    />
+  </div>
+  <button  type="submit" class="btn btn-secondary">Enviar</button>
+</form>

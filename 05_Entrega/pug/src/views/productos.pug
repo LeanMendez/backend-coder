@@ -1,0 +1,21 @@
+extends ./main
+block prod
+    main.container.d-flex.flex-column.justify-content-center
+        h1.text-center Lista de Productos
+            table.table.table-dark.table-hover
+                thead 
+                    tr 
+                        th(scope="col") ID 
+                        th(scope="col") NOMBRE 
+                        th(scope="col") PRECIO 
+                        th(scope="col") IMAGEN 
+                tbody 
+                    each item in productos  
+                        tr  
+                            th(scope='row') #{item.id} 
+                            td #{item.title} 
+                            td $ #{item.price} 
+                            td 
+                                img(src=item.thumbnail, alt="cover", width="130")
+        div.d-grid.gap-2.col-4.mx-auto
+            a.btn.btn-warning(href="/", type="button") Volver al Formulario

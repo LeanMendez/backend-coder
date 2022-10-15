@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "title": "Fire and Blood",
+    "price": 3500,
+    "thumbnail": "https://m.media-amazon.com/images/I/41gq02g-MoL.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Cuentos inconclusos de Númenor y la tierra media",
+    "price": 1200,
+    "thumbnail": "https://m.media-amazon.com/images/I/91HZ7o3iP6L.jpg"
+  },
+  {
+    "id": 3,
+    "title": "El Silmarillion",
+    "price": 1000,
+    "thumbnail": "https://contentv2.tap-commerce.com/cover/large/9789505470648_1.jpg?id_com=1156"
+  },
+  {
+    "id": 4,
+    "title": "La música del silencio",
+    "price": 1500,
+    "thumbnail": "https://canallector.com/old-thumbs/978-84-01-33720-8_g.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Harry Potter and the chamber of secrets",
+    "price": 3300,
+    "thumbnail": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/4088/9781408855669.jpg"
+  },
+  {
+    "id": 6,
+    "title": "El temor de un hombre sabio",
+    "price": 5800,
+    "thumbnail": "https://www.edicontinente.com.ar/image/titulos/9788401339639.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Dune",
+    "price": 3300,
+    "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_951620-MLA43677613114_102020-O.jpg"
+  },
+  {
+    "id": 8,
+    "title": "Los pilares de la tierra",
+    "price": 5400,
+    "thumbnail": "https://contentv2.tap-commerce.com/cover/large/9789506445430_1.jpg?id_com=1113"
+  },
+  {
+    "id": 9,
+    "title": "Love Elliot",
+    "price": 1200,
+    "thumbnail": "https://template.canva.com/EADaoqykhsg/2/0/256w-MpULnt2suok.jpg"
+  }
+]

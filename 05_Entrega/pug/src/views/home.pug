@@ -1,0 +1,15 @@
+main.container.d-flex.flex-column.justify-content-center
+    h1.text-center Formulario de carga de productos
+    form.d-grid.col-5.mx-auto.mb-5(action="/productos", method="post") 
+        div.mb-3 
+            label.form-label(for="title") Nombre del Producto 
+            input.form-control#title(type="text", name="title", aria-required="true", required) 
+        div.mb-3 
+            label.form-label(for="price") Precio del Producto 
+            input.form-control#price(type="number", name="price", aria-required="true", required) 
+        div.mb-3 
+            label.form-label(for="url") URL foto de Producto 
+            input.form-control#title(type="text", name="thumbnail", aria-required="true", required) 
+        button.btn.btn-secondary(type="submit") Enviar
+    div.d-grid.gap-2.col-4.mx-auto
+        a.btn.btn-warning(href="/productos", type="button") Lista de Productos
