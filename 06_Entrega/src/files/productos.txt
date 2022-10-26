@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "title": "Fire and Blood",
+    "price": 3500,
+    "thumbnail": "https://images.booksense.com/images/009/598/9780593598009.jpg"
+  },
+  {
+    "id": 2,
+    "title": "The Fall Of Gondolin",
+    "price": 1200,
+    "thumbnail": "https://images.booksense.com/images/458/131/9780358131458.jpg"
+  },
+  {
+    "id": 3,
+    "title": "El Silmarillion",
+    "price": 1000,
+    "thumbnail": "https://images.booksense.com/images/012/338/9780544338012.jpg"
+  },
+  {
+    "id": 4,
+    "title": "La música del silencio",
+    "price": 1500,
+    "thumbnail": "https://images.booksense.com/images/790/143/9786073143790.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Harry Potter and the chamber of secrets",
+    "price": 3300,
+    "thumbnail": "https://images.booksense.com/images/403/353/9780590353403.jpg"
+  },
+  {
+    "id": 6,
+    "title": "El temor de un hombre sabio",
+    "price": 5800,
+    "thumbnail": "https://images.booksense.com/images/619/899/9788499899619.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Dune",
+    "price": 3300,
+    "thumbnail": "https://images.booksense.com/images/593/013/9780441013593.jpg"
+  }
+]
