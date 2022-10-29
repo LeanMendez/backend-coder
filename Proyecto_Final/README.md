@@ -65,7 +65,7 @@ Endpoint list for the services provided
 | `price`       | required | number  |  product's price
 | `stock`       | required | number  |  stock 
 
-### UP `api/productos/{id}`
+### UPDATE `api/productos/{id}`
 **Parameters**
 |          Name | Required |  Type   | Description 
 | -------------:|:--------:|:-------:| --------------------------------|
