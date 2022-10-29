@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1,
+    "productos": [
+      {
+        "id": 5,
+        "nombre": "mug 5",
+        "descripcion": "taza sublimada",
+        "codigo": "1203",
+        "foto": "foto5.jpg",
+        "precio": 1050,
+        "stock": false,
+        "timestamp": 1666918254475
+      },
+      {
+        "id": 2,
+        "nombre": "mug 2",
+        "descripcion": "taza sublimada",
+        "codigo": "1200",
+        "foto": "foto2.jpg",
+        "precio": 500,
+        "stock": true,
+        "timestamp": 1666918163519
+      }
+    ],
+    "timestamp": 1666912925323
+  },
+  {
+    "id": 2,
+    "productos": [
+      {
+        "id": 1,
+        "nombre": "mug 1",
+        "descripcion": "taza sublimada",
+        "codigo": "1200",
+        "foto": "foto1.jpg",
+        "precio": 500,
+        "stock": true,
+        "timestamp": 1666918148987
+      },
+      {
+        "id": 3,
+        "nombre": "mug 3",
+        "descripcion": "taza sublimada",
+        "codigo": "1201",
+        "foto": "foto3.jpg",
+        "precio": 680,
+        "stock": true,
+        "timestamp": 1666918174825
+      }
+    ],
+    "timestamp": 1666925054239
+  }
+]
