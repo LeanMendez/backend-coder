@@ -1,3 +1,3 @@
 export const config = { 
-    isAdmin: false
+    isAdmin: true
 }

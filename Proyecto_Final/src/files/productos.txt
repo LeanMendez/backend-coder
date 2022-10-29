@@ -58,5 +58,35 @@
     "precio": 1050,
     "stock": true,
     "timestamp": 1666918271005
+  },
+  {
+    "id": 7,
+    "nombre": "mug 19",
+    "descripcion": "taza sublimada",
+    "codigo": "1700",
+    "foto": "foto19.jpg",
+    "precio": 790,
+    "stock": true,
+    "timestamp": 1667082188402
+  },
+  {
+    "id": 8,
+    "nombre": "mug 19",
+    "descripcion": "taza sublimada",
+    "codigo": "1700",
+    "foto": "foto19.jpg",
+    "precio": 790,
+    "stock": true,
+    "timestamp": 1667082213492
+  },
+  {
+    "id": 9,
+    "nombre": "mug 20",
+    "descripcion": "taza sublimada",
+    "codigo": "1700",
+    "foto": "foto20.jpg",
+    "precio": 790,
+    "stock": true,
+    "timestamp": 1667082261855
   }
 ]
