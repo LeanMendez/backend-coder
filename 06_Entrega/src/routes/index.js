@@ -1,14 +1,41 @@
+const ContenedorProducts = require( '../helpers/contenedorProducts')
 const express = require('express')
 const appRouter = express.Router()
 
+const serviceProducts = new ContenedorProducts('productos.txt')
 //rutas
-appRouter.get('/', (req, res)=>{
-    res.render('home', {productos:[{title: 'hola', price: 45, thumbnail: 'hola', id: 1}]})
+appRouter.get('/', async (req,res) => {
+    const productos= await serviceProducts.getAll()
+    res.render('home', {productos})
 })
 
-// appRouter.post('/', (req, res)=>{
-//     const data = req.body
-//     res.status(201)
-// })
+appRouter.get('/:id', async (req,res) => {
+    const productId = req.params.id
+    const product = await serviceProducts.getById(productId)
+    if(product){
+        return res.send(product)
+    }else{
+    res.send({error: `Product with ID ${productId} doesn't exist`})
+    }
+})
 
-module.exports = appRouter;
+appRouter.post('/', async(req,res) => {
+    const {body} = req;
+    await serviceProducts.save(body);
+    res.status(201).redirect('/');
+})
+
+appRouter.put('/:id',async(req,res)=>{
+    const updateData = req.body;
+    const productId = req.params.id;
+    const result = await serviceProducts.updateById(parseInt(productId),updateData);
+    res.status(201).send(result);
+})
+
+appRouter.delete('/:id',async(req,res)=>{
+    const productId = req.params.id;
+    const result = await serviceProducts.deleteById(parseInt(productId));
+    res.status(200).send(result);
+})
+
+module.exports = {appRouter};

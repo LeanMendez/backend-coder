@@ -1,10 +1,10 @@
 const fs = require("fs");
-const addId = require("./../helpers/addIdentificador");
+const addId = require("./addIdentificador");
 const path = require('path')
 
-class Contenedor {
+class ContenedorProducts {
   constructor(filename) {
-    this._filename = path.join(__dirname, "..", `files/${filename}`);
+    this._filename = path.join(__dirname,'..',`files/${filename}`);
   }
   //METHODS
   save = async (product) => {
@@ -67,13 +67,17 @@ class Contenedor {
             selectedProduct === undefined ? null : selectedProduct;
           return finalProduct;
         } else {
+          await fs.promises.writeFile(this.filename, JSON.stringify([]));
           console.log("Document is empty");
+          return [];
         }
       } else {
-        console.log("Document does not exist");
+        await fs.promises.writeFile(this.filename, JSON.stringify([]));
+        return [];
       }
     } catch (error) {
       console.log(error);
+      console.log("Document does not exist");
     }
   };
 
@@ -141,6 +145,7 @@ class Contenedor {
       console.log(error);
     }
   };
+
   updateById = async (id, body) => {
     try {
       const productos = await this.getAll();
@@ -160,4 +165,4 @@ class Contenedor {
   };
 }
 
-module.exports = Contenedor;
+module.exports = ContenedorProducts;
