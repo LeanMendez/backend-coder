@@ -19,9 +19,9 @@ class ContenedorSql {
 
     async save(producto){
         try {
-            const [productId] = await this.database.from(this.tableName).insert(producto)
-            console.log(await this.getById(productId))
-            return console.log(`data with ID: ${productId} saved`)
+            const [id] = await this.database.from(this.tableName).insert(producto);
+            console.log(await this.getAll())
+            return console.log(`data with ID: ${id} saved`)
         } catch (error) {
             return error
         }

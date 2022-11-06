@@ -61,7 +61,7 @@ io.on("connection", async (socket) => {
      //agregar los mensajes del usuario y lo guardamos en sqlite
     socket.on("newMessage",async(newMsg)=>{
         console.log(newMsg)
-        await serviceChat.save(newMsg);
+        await serviceChat.save({...newMsg})
         const payload = await serviceChat.getAll()
         console.log(payload)
         io.sockets.emit("messages", payload);
