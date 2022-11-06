@@ -1,0 +1,23 @@
+body{
+    background-color: #1c2024;
+    color: rgb(221, 220, 220);
+}
+
+.validation::before {
+    display: none;
+}
+
+.validation i {
+    margin: 0 .4em;
+    color: #bd0a40;
+    font-size: 1.4em;
+}
+
+
+.empty-list{
+    color: rgb(196, 196, 196);
+}
+
+.containerTable{
+    margin: 1rem;
+}
