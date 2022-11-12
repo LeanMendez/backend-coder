@@ -1,0 +1,53 @@
+// --> Carga de script
+load("script.js")
+
+// --> Mostrar databases disponibles
+show databases
+
+// --> Usar database ecommerce
+use ecommerce
+
+// --> Listar todos los productos:
+db.products.find()
+
+// --> Listar todos los mensajes:
+db.messanges.find()
+
+// --> Cantidad de documentos en productos:
+db.products.count()
+
+// --> Cantidad de documentos en mensajes:
+db.messages.count()
+
+
+
+// ## --> CRUD sobre productos:
+
+// a) agregar un producto
+db.products.insertOne({title:"The Lost Metal: A Mistborn Novel",price:4500,thumbnail:"https://images3.penguinrandomhouse.com/cover/9788418037733"})
+
+// b) filtra los nombres de los productos:
+
+// --> precio menor a 1000:
+db.products.find({price:{$lte:1000}},{"title":1,"_id":0})
+
+// --> precio entre 1000 y 3000:
+db.products.find({$and:[{price:{$gte:1000}},{price:{$lte:3000}}]},{"title":1,"_id":0})
+
+// --> precio mayor a 3000:
+db.products.find({price:{$gte:3000}},{"title":1,"_id":0})
+
+// --> nombre del tercer producto mas barato:
+db.products.find({},{"title":1,"_id":0}).sort({price:1}).skip(2).limit(1)
+
+// c) actualiza el stock de todos los productos a 100:
+db.products.updateMany({},{$set:{"stock":100}})
+
+// d) actualiza el stock a 0 de productos con precio mayor a 4000:
+db.products.updateMany({price:{$gte:4000}},{$set:{"stock":0}})
+
+// e) elimina productos con precio menor a 1000:
+db.products.deleteMany({price:{$lte:1000}})
+
+// --> Crear perfil de lectura:
+db.createUser({user: 'pepe', pass: 'asd456', roles: [{role: 'read', db: 'ecommerce'}]})
