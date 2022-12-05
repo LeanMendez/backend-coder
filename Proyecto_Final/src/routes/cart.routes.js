@@ -1,5 +1,4 @@
 import { Router } from "express";
-import Contenedor from "../helpers/contenedor.js";
 import {
   addProductToCart,
   createCart,
@@ -9,7 +8,6 @@ import {
 } from "../controllers/carts.controller.js";
 
 const cartRouter = Router();
-const serviceCart = new Contenedor("carrito.txt");
 
 cartRouter.post("/", createCart);
 

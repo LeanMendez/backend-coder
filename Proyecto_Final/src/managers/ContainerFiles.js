@@ -1,14 +1,14 @@
 import fs from "fs";
-import addId from "./../helpers/addIdentificador.js";
+import addId from "../helpers/addIdentificador.js";
 import path from 'path'
 import { fileURLToPath } from "url";
 
-class Contenedor {
+class ContainerFiles {
   constructor(filename) {
     this._filename = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", `files/${filename}`);
   }
   //METHODS
-  save = async (product) => {
+  save = async (body) => {
     try {
       if (fs.existsSync(this._filename)) {
         const content = await fs.promises.readFile(
@@ -19,7 +19,7 @@ class Contenedor {
           const productos = JSON.parse(content);
           const newProduct = {
             id: addId(productos),
-            ...product,
+            ...body,
           };
           productos.push(newProduct);
           await fs.promises.writeFile(
@@ -30,7 +30,7 @@ class Contenedor {
         } else {
           const newProduct = {
             id: 1,
-            ...product,
+            ...body,
           };
           await fs.promises.writeFile(
             this._filename ,
@@ -41,7 +41,7 @@ class Contenedor {
       } else {
         const newProduct = {
           id: 1,
-          ...product,
+          ...body,
         };
         await fs.promises.writeFile(
           this._filename ,
@@ -142,6 +142,7 @@ class Contenedor {
       console.log(error);
     }
   };
+
   updateById = async (id, body) => {
     try {
       const productos = await this.getAll();
@@ -161,4 +162,4 @@ class Contenedor {
   };
 }
 
-export default Contenedor;
+export default ContainerFiles;

@@ -1,7 +1,7 @@
 import addId from "../helpers/addIdentificador.js"
-import Contenedor from '../helpers/contenedor.js';
+import { ContainerDaoProducts } from '../daos/index.js';
 
-const serviceProduct = new Contenedor('productos.txt')
+const serviceProduct = ContainerDaoProducts
 
 const getProducts =  async (req, res)=> {
     try {
@@ -30,11 +30,11 @@ const saveProduct = async (req, res) => {
         const productos = await serviceProduct.getAll();
         const newProduct = {
             id: addId(productos),
-            nombre,
-            descripcion,
-            codigo,
-            foto,
-            precio,
+            name: nombre,
+            description: descripcion,
+            cod: codigo,
+            thumbnail: foto,
+            price: precio,
             stock,
             timestamp: Date.now()
         }
