@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "autor": {
+      "id": "l@gmail.com",
+      "nombre": "Leandro",
+      "edad": "55",
+      "alias": "Leo",
+      "avatar": "foto.jpg"
+    },
+    "texto": "Hola, probando el chat",
+    "hora": "2022-12-05T23:13:41.858Z"
+  }
+]
