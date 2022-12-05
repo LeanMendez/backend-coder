@@ -4,17 +4,13 @@ const { Server } = require('socket.io')
 const handlebars = require('express-handlebars')
 
 const { appRouter } = require('./routes')
-//const ContenedorProducts = require('./helpers/contenedorProducts')
-//const ContenedorChat = require('./helpers/contenedorChat')
+
 const ContenedorSql = require('./helpers/contenedorSql')
-//const addId = require('./helpers/addIdentificador')
 const options = require('./config/databaseConfig')
 
 
 //service
-//onst serviceProducts = new ContenedorProducts('productos.txt')
 const serviceProducts = new ContenedorSql(options.mariaDB, 'products');
-//const serviceChat = new ContenedorChat('mensajes.txt')
 const serviceChat = new ContenedorSql(options.sqlite, 'chat')
 
 //server
@@ -59,11 +55,9 @@ io.on("connection", async (socket) => {
     io.sockets.emit("messages", await serviceChat.getAll());
 
      //agregar los mensajes del usuario y lo guardamos en sqlite
-    socket.on("newMessage",async(newMsg)=>{
+    socket.on("newMessage", async(newMsg)=>{
         console.log(newMsg)
-        await serviceChat.save({...newMsg})
-        const payload = await serviceChat.getAll()
-        console.log(payload)
-        io.sockets.emit("messages", payload);
+        await serviceChat.save(newMsg)
+        io.sockets.emit("messages", await serviceChat.getAll());
     })
 })

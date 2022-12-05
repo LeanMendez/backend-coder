@@ -1,4 +1,4 @@
-const ContenedorProducts = require( '../helpers/contenedorProducts')
+
 const ContenedorSql = require( '../helpers/contenedorSql')
 const options = require('../config/databaseConfig')
 const express = require('express')

@@ -1,6 +1,5 @@
 const knex = require('knex')
 
-
 class ContenedorSql {
     constructor(options, tableName){
         this.database = knex(options);
@@ -17,11 +16,20 @@ class ContenedorSql {
         }
     }
 
-    async save(producto){
+    async save(body){
         try {
-            const [id] = await this.database.from(this.tableName).insert(producto);
-            console.log(await this.getAll())
-            return console.log(`data with ID: ${id} saved`)
+
+            
+            const [id] = await this.database(this.tableName).insert({
+                time: new Date().toLocaleString(),
+                user: body.user,
+                mensaje: body.mensaje,
+            });
+            const msj = await this.getById(id)
+            return msj
+            //await this.database.from(this.tableName).insert(producto);
+            //console.log(await this.getAll())
+            //console.log(`data with ID: ${id} saved`)
         } catch (error) {
             return error
         }

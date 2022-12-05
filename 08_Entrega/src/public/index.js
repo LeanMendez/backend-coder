@@ -53,9 +53,7 @@ socketClient.on('products', async (data)=>{
 })
 
 
-
 // variables del chat
-
 socketClient.on("messages", async (dataMsg)=>{
     console.log(dataMsg)
     let messageElements = "";

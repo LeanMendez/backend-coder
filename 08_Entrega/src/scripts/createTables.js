@@ -26,7 +26,7 @@ const createTables = async () => {
     }
     await dbsqlite.schema.createTable("chat", (table) => {
       table.increments("id");
-      table.string("email", 30).nullable(false);
+      table.string("user", 30).nullable(false);
       table.string("timestamp", 20).nullable(false);
       table.string("msg", 200).nullable(false);
     });
