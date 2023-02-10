@@ -23,7 +23,7 @@ class ContainerSQL{
         try {
             const data = {...body, timestamp: new Date.now()}
             const [id] = await this.database(this.table).insert(data)
-            return console.log(`item with ID:${id} saved successfully`)
+            return logger.info(`item with ID:${id} saved successfully`)
         } catch (error) {
             return error
         }
@@ -42,7 +42,7 @@ class ContainerSQL{
     async deleteById(id){
         try {
             await this.database.from(this.tableName).where('id', id).del()
-            return console.log(`item with ID: ${id} deleted from table: ${this.tableName}`)
+            return logger.info(`item with ID: ${id} deleted from table: ${this.tableName}`)
         } catch (error) {
             return error
         }
@@ -51,7 +51,7 @@ class ContainerSQL{
     async deleteAll(){
         try {
             await this.database.from(this.tableName).del()
-            return console.log(`All items from table: ${this.tableName} was deleted`)
+            return logger.info(`All items from table: ${this.tableName} was deleted`)
         } catch (error) {
            return error 
         }

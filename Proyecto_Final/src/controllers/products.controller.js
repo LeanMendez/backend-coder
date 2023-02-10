@@ -1,12 +1,13 @@
 import addId from "../helpers/addIdentificador.js"
 import { ContainerDaoProducts } from '../daos/index.js';
+import { checkLogin } from "../middlewares/checkLogin.js";
 
 const serviceProduct = ContainerDaoProducts
 
 const getProducts =  async (req, res)=> {
     try {
         if(req.params.id !== undefined){
-            const id = parseInt(req.params.id)
+            const id = req.params.id
             const product = await serviceProduct.getById(id)
             if(!product){
                 res.status(400).json({status: "FAILED", data: { error: `Product with ID: ${id} doesn't exist`}})
@@ -14,6 +15,7 @@ const getProducts =  async (req, res)=> {
             res.status(200).json(product)
         }else{
             const products = await serviceProduct.getAll()
+            console.log(req)
             res.status(200).json({status: "OK", data: products})
         }
     } catch (err) {
@@ -68,9 +70,9 @@ const updateProduct = async (req, res) =>{
 const deleteProduct = async (req, res) => {
     try {
         const id = parseInt(req.params.id)
-        console.log(id)
+        logger.info(id)
         const product = await serviceProduct.getById(id)
-        console.log(product)
+        logger.info(product)
         if(!product){
             res.status(400).json({status: "FAILED", data: { error: `Product with ID: ${id} doesn't exist`}})
         }

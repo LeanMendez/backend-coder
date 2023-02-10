@@ -10,7 +10,7 @@ class ContainerMongoDB {
     //METHODS
     async save(body){
         try {
-           const newItem = await this.model.create(data)
+           const newItem = await this.model.create(body)
            return newItem
         } catch (error) {
             return error
@@ -43,9 +43,9 @@ class ContainerMongoDB {
     async deleteAll(){
         try {
             await this.model.deleteMany()
-            return console.log(`All the items from collection: ${this.Collection} were deleted`)
+            return logger.info(`All the items from collection: ${this.Collection} were deleted`)
         } catch (error) {
-         
+            return error
         }
     }
     async updateById(id, body){
@@ -53,6 +53,14 @@ class ContainerMongoDB {
             await this.model.findByIdAndUpdate(id, body)
             const updatedItem = await this.getById(id)
             return updatedItem
+        } catch (error) {
+            return error
+        }
+    }
+
+    async orderCart(){
+        try {
+            
         } catch (error) {
             return error
         }

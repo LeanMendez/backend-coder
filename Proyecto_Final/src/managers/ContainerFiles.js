@@ -2,6 +2,7 @@ import fs from "fs";
 import addId from "../helpers/addIdentificador.js";
 import path from 'path'
 import { fileURLToPath } from "url";
+import { loggerFileError, loggerFileWarn } from "../logger/logger.js";
 
 class ContainerFiles {
   constructor(filename) {
@@ -50,7 +51,7 @@ class ContainerFiles {
         return newProduct.id;
       }
     } catch (error) {
-      console.log(error);
+      loggerFileError.error(error);
     }
   };
 
@@ -68,13 +69,13 @@ class ContainerFiles {
             selectedProduct === undefined ? null : selectedProduct;
           return finalProduct;
         } else {
-          console.log("Document is empty");
+          loggerFileWarn.warn("Document is empty");
         }
       } else {
-        console.log("Document does not exist");
+        loggerFileWarn.warn("Document does not exist");
       }
     } catch (error) {
-      console.log(error);
+      loggerFileError.error(error);
     }
   };
 
@@ -89,13 +90,13 @@ class ContainerFiles {
           const products = JSON.parse(content);
           return products;
         } else {
-          console.log("Document is empty");
+          loggerFileWarn.warn("Document is empty");
         }
       } else {
-        console.log("Document does not exist");
+        loggerFileWarn.warn("Document does not exist");
       }
     } catch (error) {
-      console.log(error);
+      loggerFileError.error(error);
     }
   };
 
@@ -114,13 +115,13 @@ class ContainerFiles {
             JSON.stringify(arrProductFiltered, null, 2)
           );
         } else {
-          console.log("Document is empty");
+          loggerFileWarn.warn("Document is empty");
         }
       } else {
-        console.log("Document does not exists");
+        loggerFileWarn.warn("Document does not exists");
       }
     } catch (error) {
-      console.log(error);
+      loggerFileError.error(error);
     }
   };
 
@@ -139,7 +140,7 @@ class ContainerFiles {
         }
       }
     } catch (error) {
-      console.log(error);
+      loggerFileError.error(error);
     }
   };
 
@@ -157,9 +158,8 @@ class ContainerFiles {
       );
       return;
     } catch (error) {
-      console.log(error);
+      loggerFileError.error(error);
     }
   };
 }
-
 export default ContainerFiles;

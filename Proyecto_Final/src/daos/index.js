@@ -2,6 +2,7 @@ import * as dotenv from 'dotenv'
 dotenv.config()
 import mongoose from 'mongoose'
 import options from '../config/config.js'
+import { logger, loggerFileError } from '../logger/logger.js'
 
 let ContainerDaoProducts
 let ContainerDaoCarts
@@ -17,32 +18,33 @@ switch (PersistenceDatabaseType) {
         //Mongo connection
         mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true }, 
         (err) => {
-            if(err) throw new Error(`Connection failed - ${err}`)
-            console.log('Connected successfully to mongoDB');
+            if(err) loggerFileError.error(`Connection failed - ${err}`)
+            logger.info('Connected successfully to mongoDB');
         })
 
-        const productsSchema = await import('../models/mongoDB/mongoDB.models.js')
-        const productsCollection = await import('../models/mongoDB/mongoDB.models.js')
+        const {productsSchema} = await import('../models/mongoDB/product.models.js')
+        const {productsCollection} = await import('../models/mongoDB/product.models.js')
         const {ProductDaoMongoDB} = await import('./products/ProductDaoMongoDB.js')
         ContainerDaoProducts = new ProductDaoMongoDB(productsCollection, productsSchema)
 
-        const cartsSchema = await import('../models/mongoDB/mongoDB.models.js')
-        const cartsCollection = await import('../models/mongoDB/mongoDB.models.js')
-        const {CartDaoMongoDB} = await import('./cart/CartDaoMongoDB.js')
+        const {cartsSchema} = await import('../models/mongoDB/cart.models.js')
+        const {cartsCollection} = await import('../models/mongoDB/cart.models.js')
+        const {CartDaoMongoDB} = await import('./carts/CartDaoMongoDB.js')
         ContainerDaoCarts = new CartDaoMongoDB(cartsCollection, cartsSchema)
 
         break;
     case 'MariaDB':
-        const CartDaoMariaDB = await import('./cart/CartDaoMariaDB.js')
-        const ProductDaoMariaDB = await import('./products/ProductDaoMariaDB.js')
+        const {CartDaoMariaDB} = await import('./cart/CartDaoMariaDB.js')
+        const {ProductDaoMariaDB} = await import('./products/ProductDaoMariaDB.js')
         ContainerDaoProducts = new ProductDaoMariaDB(options.mariaDB,'products')
         ContainerDaoCarts = new CartDaoMariaDB(options.mariaDB,'carts')
         break;
     case 'FileSystem':
         const CartDaoFyleSystem = await import('./carts/CartDaoFileSystem.js')
         const ProductDaoFyleSystem = await import('./products/ProductDaoFileSystem.js')
-        ContainerDaoProducts = new ProductDaoFyleSystem('products.txt')
-        ContainerDaoCarts = new CartDaoFyleSystem('carts.txt')
+        logger.info(typeof(ProductDaoFyleSystem))
+        ContainerDaoProducts = new ProductDaoFyleSystem(options.fileSystem.pathProd)
+        ContainerDaoCarts = new CartDaoFyleSystem(options.fileSystem.pathCart)
         break;
 }
 
