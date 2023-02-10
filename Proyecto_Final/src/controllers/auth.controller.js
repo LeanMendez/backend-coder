@@ -1,6 +1,5 @@
 import { UserModel } from "../models/mongoDB/user.models.js";
 import { logger, loggerFileError } from "../logger/logger.js";
-import { registerMailer } from "../mailer/mailer.js";
 import bcrypt from "bcrypt";
 import passport from "passport";
 
@@ -12,7 +11,26 @@ const authRegister = async (req, res) => {
         return res.json({ messge: "hubo un error al identificar al usuario" });
       try {
         if (req.user) {
-          registerMailer(user);
+          mailTransport.sendMail({
+            from: "Server Node",
+            to: process.env.ADMIN_MAIL,
+            subject: "New Register",
+            html: `
+          <div>
+          <h1>New user registered</h1>
+          <h2>User information: </h2>
+          <p>ID: <span>${user._id}</span></p>
+          <p>Name: <span>${user.name}</span></p>
+          <p>Email: <span>${user.email}</span></p>
+          <p>Address: <span>${user.address}</span></p>
+          <p>phone number: <span>${user.phone}</span></p>
+          </div>
+          `
+          },
+          (error, response)=>{
+          if(error) loggerFileError.error(`Has been an error with the register email: ${error}`) 
+          }
+          );
         }
         res.send({ message: "usuario registrado" });
       } catch (error) {
@@ -82,7 +100,7 @@ const authLogout = async (req, res) => {
       if (error)
         return res
           .status(400)
-          .json({ message: `Error al cerrar sesion`, error: error });
+          .json({ message: `LogOut error`, error: error });
       return res
         .status(200)
         .json({ message: "Sesion finalizada correctamente" });
