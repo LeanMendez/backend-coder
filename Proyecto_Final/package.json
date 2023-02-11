@@ -7,8 +7,8 @@
   "scripts": {
     "dev": "nodemon ./src/server.js",
     "start-cluster": "node src/server.js -m CLUSTER",
-    "reporte-fork": "artillery quick --count 20 -n 50 http://localhost:8080/api/productos > result_fork.txt",
-    "reporte-cluster": "artillery quick --count 20 -n 50 http://localhost:8080/api/productos > result_cluster.txt"
+    "artillery-fork": "artillery quick --count 200 -n 50 http://localhost:8080/api/productos > result_fork.txt",
+    "artillery-cluster": "artillery quick --count 200 -n 50 http://localhost:8080/api/productos > result_cluster.txt"
   },
   "keywords": [],
   "author": "",

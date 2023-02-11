@@ -15,7 +15,6 @@ const getProducts =  async (req, res)=> {
             res.status(200).json(product)
         }else{
             const products = await serviceProduct.getAll()
-            console.log(req)
             res.status(200).json({status: "OK", data: products})
         }
     } catch (err) {

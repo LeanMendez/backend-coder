@@ -22,7 +22,7 @@ export const __dirname = path.dirname(__filename);
 //Arguments minimist
 const optionsFork ={alias:{m:'mode'}, default:{mode:'FORK'}}
 const objArguments = parseArgs(process.argv.slice(2), optionsFork)
-const MODO = objArguments.mode
+const MODO = objArguments.mode || process.env.MODO 
 logger.info('objArg', MODO);
 
 

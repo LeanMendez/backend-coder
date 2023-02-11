@@ -79,7 +79,6 @@ const addProductToCart = async (req, res) => {
     } else {
       const productId = req.body.id;
       const product = await serviceProduct.getById(productId);
-      console.log(product)
       await cart.products.push(product);
       const updatedCart = await serviceCart.updateById(id, cart);        
       res.status(201).json({
