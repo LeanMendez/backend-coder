@@ -1,0 +1,46 @@
+## Read all users
+query {
+  getUsers {
+    _id
+    email
+    password
+  }
+}
+
+## Read one user by id
+query {
+  getUserById(id: "63fbadd58965fc5989eeb230") {
+    email
+    password
+  }
+}
+
+
+## Create new user
+mutation {
+  saveUser(
+    user: { email: "graphql.user@gmail.com", password: "111"}
+  ) {
+    email
+    password
+  }
+}
+
+## Update one user by id
+mutation {
+  updateUserById(
+    id: "63fbadd58965fc5989eeb230"
+    user: { email: "my_email@gmail.com"}
+  ) {
+    email
+    password
+  }
+}
+
+## Delete use by id
+mutation {
+  deleteUserById(id: "63fbadd58965fc5989eeb230") {
+    email
+    password
+  }
+}
