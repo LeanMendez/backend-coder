@@ -1,3 +1,0 @@
-//se me quejó Github porque subi el archivo .env, asi que te lo cambio por .example-env cambialo por .env para que te lo tome
-
-MONGO_URI="mongodb+srv://LeanMendez:1tRaGxQFCagXphqA@coder.vwm9zrq.mongodb.net/nest-ecommerce?retryWrites=true&w=majority"
